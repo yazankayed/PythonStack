@@ -1,0 +1,236 @@
+.cover {
+   background-color: rgb(115, 167, 213);
+   height: 5px;
+   margin: 0 auto;
+   text-align: center;
+   width: 60%;
+   margin-top: 10px;
+}
+
+.footerone {
+   text-align: center;
+
+   background-color: rgb(36, 80, 118);
+   margin: 0 auto;
+   width: 100%;
+   height: 100px;
+   margin-top: -20px;
+   color: rgb(133, 183, 227);
+
+}
+
+.footertwo {
+   text-align: center;
+
+   background-color: rgb(36, 80, 118);
+   margin: 0 auto;
+   width: 100%;
+   height: 100px;
+   font-size: 10px;
+   color: rgb(133, 183, 227);
+
+}
+
+.whitefont {
+   text-align: center;
+   display: flex;
+   background-color: rgb(36, 80, 118);
+   margin: 0 auto;
+   width: 100%;
+}
+
+
+
+
+.whiteleft,
+.whiteright {
+   text-align: center;
+   background-color: white;
+   width: 100%;
+
+}
+
+#whiteheader {
+   text-align: center;
+   margin-top: 0;
+   font-size: 20px;
+}
+
+.list {
+   text-align: center;
+   color: rgb(128, 174, 217);
+   background-color: white;
+
+
+
+}
+
+#bluue {
+
+   color: rgb(128, 174, 217);
+
+}
+
+
+
+
+.rightblue {
+   background-color: rgb(36, 80, 118);
+   margin-left: 100px;
+   padding-bottom: 10px;
+}
+
+.bluewhite {
+
+   background-color: rgb(36, 80, 118);
+   color: white;
+   margin: 0 auto;
+   width: 100%;
+   text-align: center;
+}
+
+.blueyellow {
+   background-color: rgb(36, 80, 118);
+
+   margin: 0 auto;
+   width: 100%;
+   text-align: center;
+
+
+}
+
+.blueyellow {
+   color: yellow;
+   font-style: italic;
+   line-height: 2;
+}
+
+
+.leftbluelist {
+   background-color: rgb(36, 80, 118);
+
+   color: white;
+   margin-left: 20px;
+   line-height: 2;
+
+}
+
+.heading {
+   display: flex;
+   width: 100%;
+   background-color: rgb(36, 80, 118);
+
+
+
+
+}
+
+
+.navingationbar {
+   display: flex;
+
+}
+
+.nav {
+   width: 80%;
+   display: flex;
+   align-items: center;
+   list-style-type: none;
+   justify-content: space-around;
+   color: white;
+   background-color: rgb(67, 124, 173);
+   height: 50px;
+   margin-left: 12%;
+   border-radius: 15px;
+   box-shadow: 2px 2px black;
+
+}
+
+
+.leftblue {
+
+   background-color: rgb(36, 80, 118);
+
+   color: white;
+
+}
+
+.navlist {
+
+   background-color: rgb(67, 124, 173);
+   color: white;
+}
+
+.searchbar {
+   background-color: rgb(68, 68, 68);
+   width: 500px;
+
+   height: 100px;
+   border-radius: 30px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 350px;
+   padding-left: 20px;
+
+}
+
+#search {
+   height: 30px;
+
+}
+
+.go {
+   height: 35px;
+   background-color: rgb(36, 80, 118);
+   width: 50px;
+
+   box-shadow: 2px 2px white;
+
+
+}
+
+#logoimg {
+
+   width: 350px;
+
+}
+
+.searchlabel {
+
+   font-size: 10px;
+   margin-left: 20px;
+   font-size: 12px;
+
+}
+
+#searchlab {
+   color: rgba(255, 255, 0, 0.591);
+
+}
+
+.bluefont {
+
+   background-color: rgb(36, 80, 118);
+   display: flex;
+}
+
+
+.footer {
+
+   background-color: rgb(36, 80, 118);
+}
+
+
+
+.container {
+   width: 970px;
+   background-color: rgb(36, 80, 118);
+   margin: 0 auto;
+
+}
+
+#white {
+
+   font-style: initial;
+   color: white;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Play</title>
+    <style>
+        .box {
+            width: 12.5%;
+        }
+        .container{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% for i in range {{numm}} %}
+        <div class="box" style="background-color: {{ color:brown }};"></div>
+        <div class="box" style="background-color: {{ color:black }};"></div>
+        
+        {% endfor %}
+    </div> 
+</body>
+
+</html>
