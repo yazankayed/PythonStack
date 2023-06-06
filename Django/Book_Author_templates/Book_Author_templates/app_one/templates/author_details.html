@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <h1>yyyyyy</h1>
+    <h1>lllll</h1>
+    <h1>{{specific_author.first_name}} {{specific_author.first_name}}</h1>
+    <h2>ID: {{specific_author.id}} </h2>
+    <h2>Notes: {{specific_author.notes}} </h2>
+    <h2>Books</h2>
+
+    <ul>
+        {% for book_author in specific_author.books.all %}
+        <li> {{book_author.title}} </li>
+        {% endfor %}
+    </ul>
+
+    <form action="/addatob" method="post">
+        {% csrf_token %}
+        <label for="author_to_book">Choose a Book:</label>
+
+        <select name="author_to_book">
+
+            {%for book in all_books%}
+            <option value="{{book.id}}"> {{book.title}} </option>
+            {%endfor%}
+        </select>
+        <input type="hidden" name="atob" value="{{specific_author.id}}">
+        
+        <input type="submit" value="Add">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add a Dojo</h1><br>
+        <div class="topDiv">
+
+            <div class="topLeftContainer">
+                <div>
+                    <p class="inputss">Name:</p>
+                    <p class="inputss">City:</p>
+                    <p class="inputss">State:</p>
+                </div>
+                <div>
+                    <form action="/dojo" method="post">
+                        {% csrf_token %} 
+                        <!-- <label for="dojo_name">Name</label> -->
+                        <input class="inputs" type="text" name="dojo_name">
+                        <br>
+                        <!-- <label for="dojo_city">City</label> -->
+                        <input class="inputs" type="text" name="dojo_city">
+                        <br>
+                        <!-- <label for="dojo_state">State</label> -->
+                        <input class="inputs" type="text" name="dojo_state">
+                        <br>
+                        <button class="inputs" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+            <div class="topRightContainer">
+                <div>
+                    <p class="inputss">First Name</p>
+                    <p class="inputss">Last Name</p>
+                </div>
+                <div>
+                    <form action="/ninja" method="post">
+                        {% csrf_token %} 
+                        <input class="inputs" type="text" name="ninja_fname">
+                        <br>
+                        <input class="inputs" type="text" name="ninja_lname">
+                        <br>
+                        <h4>Dojo <select name="dojos">
+                            {%for dojo in dojos_names%}
+                            <option value="{{dojo.id}}"> {{dojo.name}} </option>
+                            {%endfor%}
+                        </select></h4>
+                        <button class="inputs" type="submit">Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="bottomDiv">
+
+
+            <ul>
+                {% for single_dojo in dojos_names %}
+                <h3>{{single_dojo.name}}</h3>
+                    <ul>
+                    {% for ninja in single_dojo.ninjas.all %}
+                    <li>
+                        {{ninja.first_name}} {{ninja.last_name}}
+                    </li>
+                    
+                    {% endfor %}
+                </ul>
+                    {% endfor %}
+                </ul>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="gold_box">
+            <p>Your Gold:</p>
+            <p id="gold_counter">{{request.session.gold}}</p>
+            <a href="/delete">RESET EARNED</a>
+        </div>
+        
+        <div class="locations">
+            <form action="/location" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="farm">
+                <h2>Farm</h2>
+                <p>(earns 10-20 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="locations">
+            <form action="/location" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="cave">
+                <h2>Cave</h2>
+                <p>(earns 5-10 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="locations">
+            <form action="/location" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="house">
+                <h2>House</h2>
+                <p>(earns 2-5 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="locations">
+            <form action="/location" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="casino">
+                <h2>Casino</h2>
+                <p>(earns/takes 0-50 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+
+        <p>Activities:</p>
+
+        <div id = "activities">
+
+                {% for t in request.session.text %}
+                    {% if t.1 > 0 %}
+                        <p class = "green">{{t}}</p>
+                    {% else %}
+                        <p class = "red">{{t}}</p>
+                    {% endif %}
+                {% endfor%}
+
+        </div>
+</body>
+</html>

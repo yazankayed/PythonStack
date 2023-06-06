@@ -1,0 +1,83 @@
+*{
+    padding: 0px;
+    margin: 0 auto;
+}
+
+#container {
+    background-color: green;
+    border: 1px solid black;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#container #gold_box {
+    text-align: center;
+}
+
+#gold_box {
+    width: 380px;
+    margin-left: 80px;
+}
+
+#gold_box p {
+    display: inline-block;
+    font-size: 20px;
+    font-size: 12pt;
+    margin-top: 20px;
+}
+
+#gold_counter {
+    background: black;
+    border: 3px solid white;
+    color: white;
+    display: inline-block;
+    width: 50px;
+    margin-left: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 100px;
+}
+
+.locations {
+    display: inline-block;
+    background-color: gold;
+    border: 3px colid black;
+    width: 245px;
+    height: 250px;
+    text-align: center;
+    margin-left: 31px;
+    margin-right: 31px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.location form{
+    margin-top: 25px;
+}
+
+.location input, .locations h2, .locations p, .locations button {
+    margin-top: 20px;
+}
+
+.locations button {
+    padding: 5px;
+    border: 3px solid black;
+    box-shadow: 4px 4px 0px black;
+}
+
+#activities {
+    margin-top: 20px;
+    text-align: left;
+    background-color: purple;
+    width: 1180px;
+    height: 120px;
+    overflow: auto scroll;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

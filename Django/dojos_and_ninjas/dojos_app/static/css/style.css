@@ -1,0 +1,28 @@
+.bottomDiv{
+    margin: 0 70px;
+}
+.inputs{
+    margin: 5px;
+}
+.inputss{
+    margin-top: 8px;
+}
+.topLeftContainer {
+    display: flex;
+    /* margin-left: 50px; */
+}
+.topDiv{
+    display: flex;
+}
+.topRightContainer{
+    /* margin: 100px; */
+    display: flex;
+    /* padding: 100px; */
+}
+.container{
+    margin: 0 auto;
+    width: 90%;
+}
+p{
+    margin: 0;
+}
