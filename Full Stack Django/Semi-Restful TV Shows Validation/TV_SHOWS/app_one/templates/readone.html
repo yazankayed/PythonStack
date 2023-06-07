@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read(one)</title>
+</head>
+<body>    <div style="display: flex; justify-content: space-between;">
+    <h1 style="display: inline;">TV Show {{last_show.id}} </h1>
+    
+    <a href="/shows">Go back</a>
+        </div>
+    <h3>Title: {{last_show.title}}</h3>
+    <h3>Network: {{last_show.network}}</h3>
+    <h3>Release Date: {{last_show.release_date}}</h3>
+    <h3>Description: {{last_show.description}}</h3>
+    <h3>Updated at: {{last_show.updated_at}}</h3>
+    <input type="hidden" name="hidden_idd" value="{{last_show.id}}">
+    
+    <a href="/shows/{{last_show.id}}/edit">Edit</a><p style="display: inline;">   |</p>
+    <a href="/deleteshow/{{last_show.id}}">Delete</a>
+</body>
+</html>

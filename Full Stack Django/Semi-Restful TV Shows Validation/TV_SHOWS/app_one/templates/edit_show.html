@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-between;">
+        <h1 style="display: inline;">Edit Show {{all_shows.id}} </h1>
+        <a href="/shows">Go back</a>
+    </div>
+    
+    <form action="/shows/pupdate" method="post">
+        {% csrf_token %}
+        <div>
+            <div>
+
+                <h3>Title</h3>
+                <input type="text" value="{{all_shows.title}}" name="show_title">
+            </div>
+            <div>
+                <div>
+
+                    <div style="display: flex;">
+                        <h3>Network</h3> <input type="text" value="{{all_shows.network}}" name="show_network">
+                    </div>
+                    <div>
+                        <h3>Release Date</h3> <input value="{{all_shows.release_date}}" type="date">
+                    </div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <h3>Description</h3>
+            <textarea  name="show_desc"  id="oo" cols="30" rows="10">{{all_shows.description}}</textarea>
+            <input type="hidden" name="hidden_id" value="{{all_shows.id}}">
+
+        </div>
+        <button type="submit">Update</button>
+    </form>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <br><br><br>
+    <a href="/shows/{{all_shows.id}}">Go to Show</a>
+
+</body>
+
+</html>

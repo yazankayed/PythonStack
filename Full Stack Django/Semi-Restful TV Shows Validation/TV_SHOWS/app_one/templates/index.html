@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-between;">
+        <h1 style="display: inline;">Add a New Show</h1>
+        <a href="/shows">Go back</a>
+    </div>
+    <div>
+        <form action="/pcreate" method="post">
+            {% csrf_token %}
+            <div>
+
+                <h3>Title</h3>
+                <input type="text" name="show_title">
+            </div>
+            <div>
+                <div style="display: flex; padding: 5px;">
+                    <br> <br>
+                    <div>
+                        <h3>Network</h3> <input type="text" name="show_network">
+                    </div>
+                    <div style="margin-left: 20px;">
+                        <h3>Release Date</h3> <input name="releasedate" type="date">
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+            <h3 style="margin-left: 5px;">Description</h3>
+            <textarea style="margin-left: 35px;" name="show_desc" id="oo" cols="30" rows="10"></textarea>
+    </div>
+    <button style="margin-left: 250px;" type="submit">Create</button>
+    </form>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+</body>
+
+</html>
