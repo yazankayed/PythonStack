@@ -26,5 +26,5 @@ def create_dojoo(request):
     new_dojo = Dojo.objects.create(name = request.POST['dojo_name'] , city = request.POST['dojo_city'], state = request.POST['dojo_state'])
     return new_dojo
 def create_ninjoa(request):
-    new_ninja = Ninja.objects.create(first_name = request.POST['ninja_fname'] , last_name=request.POST['ninja_lname'],dojo=Dojo.objects.get(id=request.POST['dojos']))
-    return new_ninja
+    Ninja.objects.create(first_name = request.POST['ninja_fname'] , last_name=request.POST['ninja_lname'],dojo=Dojo.objects.get(id=request.POST['dojos']))
+    
