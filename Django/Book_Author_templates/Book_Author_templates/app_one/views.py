@@ -7,9 +7,9 @@ def index (request):
     }
     return render(request,'index.html',context)
 
-def book_details(request,num):
+def book_details(request,id):
     context={
-        'specific_book':models.Book.objects.get(id=num),
+        'specific_book':models.Book.objects.get(id=id),
         'all_authors': models.show_all_authors(),
         'all_books': models.show_all_books()
     }
