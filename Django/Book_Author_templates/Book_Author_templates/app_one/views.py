@@ -20,6 +20,9 @@ def add_book_to_author(request):
     models.add_book_to_Author(request)
     return redirect(request.META['HTTP_REFERER'])
 
+#This function will do 
+# Date 
+# Created by: 
 def create_book(request):
     models.create_book(request)
     return redirect ('/')
