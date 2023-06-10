@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>The Wall</h1>
+        <h3>Welcome {{user.first_name}}</h3>
+        <a href="/logout">Logout</a>
+    </div>
+    <div>
+        <form action="/message" method="post">
+            {% csrf_token %}
+            <textarea name="post_message" cols="100" rows="5"></textarea>
+            <input type="submit" value="Post a message">
+            <input type="hidden" name="catch_id" value="{{user.id}}">
+        </form>
+        
+        <ul>
+            {% for message in msg %}
+            
+            <b style="font-size: x-large;">{{message.user.first_name}} - {{ message.created_at }}</b>
+            <form action="/destroy" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete Comment">
+                <input type="hidden" name="delete_id" value="{{message.id}}">
+            </form>
+            <li>{{message.message}}</li>
+            {% for comment in message.comments.all %}
+            <b>{{comment.user.first_name}} - {{ comment.created_at }}</b>
+            <li>{{comment.comment}}</li>
+            {% endfor %}
+            <form action="/comment" method="post">
+                {% csrf_token %}
+                <textarea name="write_comment" cols="80" rows="2"></textarea>
+                <input type="submit" name="post_comment" value="Post a Comment">
+                <input type="hidden" name="comment_user_id" value="{{user.id}}">
+                <input type="hidden" name="comment_msg_id" value="{{message.id}}">
+            </form>
+            <br>
+            {%endfor%}
+        </ul>
+
+        
+
+    </div>
+</body>
+</html>
