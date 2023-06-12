@@ -37,14 +37,14 @@ def register(request):
 
 
 def success(request):
-    context = {
-            "display_all_books": models.Book.objects.all(), 
-            "logged_user" : models.User.objects.get(id=request.session['userid'])
-        }
-    if request.session['userid']:
-        return render(request,'welcome.html' , context)
+    if  'userid' not in request.session:
+        return redirect('/')
     else:
-        redirect('/')
+        context = {
+                "display_all_books": models.Book.objects.all(), 
+                "logged_user" : models.User.objects.get(id=request.session['userid'])
+            }
+        return render(request,'welcome.html' , context)
 
 
 def create_book(request):

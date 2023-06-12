@@ -3,14 +3,14 @@ from . import models
 
 
 def wall(request):
-    context = {
+    if 'userid' not in request.session:
+        return redirect('/')
+    else:
+        context = {
         "user": models.User.objects.get(id=request.session['userid']),
         "msg": models.show_msg
     }
-    if request.session['userid']:
         return render(request, 'wall.html', context)
-    else:
-        return redirect('/')
 
 
 def create_msg(request):

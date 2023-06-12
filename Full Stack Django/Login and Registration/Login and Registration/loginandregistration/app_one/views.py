@@ -31,13 +31,13 @@ def login(request):
     return redirect('/')
 
 def success(request):
-    context = {
+    if 'userid' not in request.session:
+        return redirect('/')
+    else:
+        context = {
             "welcome" : models.User.objects.get(id=request.session['userid']).first_name
         }
-    if request.session['userid']:
         return render(request,'welcome.html' , context)
-    else:
-        redirect('/')
 
 def logout(request):
     del request.session['userid']
