@@ -24,7 +24,6 @@ def login(request):
     
         if bcrypt.checkpw(request.POST['password_email'].encode(), logged_user.password.encode()):
             request.session['userid'] = logged_user.id
-
             return redirect('/wall')
     return redirect('/')
 

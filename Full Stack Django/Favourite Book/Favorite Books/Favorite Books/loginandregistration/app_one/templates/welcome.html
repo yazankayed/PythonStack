@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div>
+        <h1>Welcome {{logged_user.first_name}} </h1>
+        <a href="/logout">Logout</a>
+    </div>
+    <div style="display: flex;">
+        <div>
+            <h1> Add a Favourite Book</h1>
+            <form action="/createbook" method="post">
+                {% csrf_token %}
+                <label for="book_title">Title : <input type="text" name="book_title"></label>
+                <br><br><br><br>
+                <label for="book_desc">Description : <textarea name="book_desc" id="ll" cols="30"
+                        rows="10"></textarea></label>
+                <input type="hidden" name="" >
+                <button type="submit">Add</button>
+            </form>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        </div>
+        <div style="margin-left: 50px;">
+            <h1>All Books</h1>
+            <br> <br><br><br>
+            {% for i in display_all_books %}
+            <a href="/books/{{i.id}}">{{i.title}}</a>
+            <br>
+            <p>(added by {{i.uploded_by.first_name}} {{i.uploded_by.last_name}}) </p>
+            <br>
+            {% if logged_user in i.users_who_like.all %}
+            <br>
+            <p>already added to favorite</p>
+            {% else %}
+            <a href="/add/{{i.id}}">Add to Favorites</a><br><br>
+            {% endif %}
+            <br><br> <br> <br>
+            {% endfor %}
+            
+            
+        </div>
+    </div>
+
+</body>
+
+</html>

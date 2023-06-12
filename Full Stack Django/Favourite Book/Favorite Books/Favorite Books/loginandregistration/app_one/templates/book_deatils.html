@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books</title>
+</head>
+
+<body>
+    <div>
+        <h1>Welcome {{logged_user.first_name}} </h1>
+        <a href="/logout">Logout</a>
+    </div>
+    <div style="display: flex; margin-top: 50px;">
+        <div>
+            <h1>{{getting_specific_book.title}}</h1>
+            <p>Added by : {{getting_specific_book.uploded_by.first_name}}</p>
+            <p>Added on {{getting_specific_book.created_at}}</p>
+            <p>Last updated on: {{getting_specific_book.updated_at}}</p>
+            <p>Description</p>
+
+
+            {% if logged_user == getting_specific_book.uploded_by %}
+            <br>
+            <form action="/update" method="post">
+                {% csrf_token %}
+                <textarea name="updated_textarea" cols="30" rows="10">{{getting_specific_book.description}}</textarea>
+                <input type="hidden" name="hiiden_id" value="{{getting_specific_book.id}}">
+                <button type="submit">Update</button>
+            </form>
+            <br><br>
+            {% else %}
+            <p> {{getting_specific_book.description}}</p>
+            {% endif %}
+        </div>
+
+
+
+
+
+        <div style="margin-left: 200px;">
+            <h3>Users Who Like This Book</h3>
+            {% for i in getting_specific_book.users_who_like.all %}
+            {{i.first_name}} {{i.last_name}}
+
+            <br><br>
+
+            {% endfor %}
+            {% if logged_user in getting_specific_book.users_who_like.all %}
+            <br>
+            <a href="/unadd/{{getting_specific_book.id}}">Remove from Favorites</a><br><br>
+            {% else %}
+            <p><a href="/add/{{getting_specific_book.id}}">Add to Favorites</a></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
