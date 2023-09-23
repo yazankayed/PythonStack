@@ -7,7 +7,7 @@ Make sure you can answer the following questions (some of these questions may be
 urls-views-html
 
 -What are MVC and OOP? Why would we use each?
-modle view controller
+model view controller
 
 -What is jQuery and why do we use it?
 javascript library to make the html more user interactive and make javascript much easier to use
