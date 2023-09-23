@@ -1,0 +1,64 @@
+GO TO INSTANCES AT LEFT 
+LAUNCH INSTANCE
+UBANTO ## DON'T CHANGE THE ABANTU
+without key
+make your project on github:
+git init
+git remote add origin https://github.com/yazankayed/testingdeploy
+git add .
+git commit -m "first commit"
+git push origin master
+
+SERVER GIT ALL INSTANCES BUTTON
+
+SELECT THE INSTANCES THEN CONNECT
+GO TO EC2 
+CONNECT
+type in the command line:
+clear
+
+
+
+sudo apt-get update
+sudo apt-get upgrade
+press enter
+git clone <repo-link>.git
+ls
+cd into project
+sudo apt install python3-pip -y
+sudo apt-get install python3-venv
+python3 -m venv env
+source env/bin/activate
+pip3 install django==4.2.1
+pip3 install bcrypt
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py createsuperuser //just write your name, skip email (press enter), then write any easy password
+cd <repo-name>
+sudo nano exam/settings.py
+then edit the ALLOWED HOSTS from ALLOWED_HOSTS = [] to ALLOWED_HOSTS = ['<instance-public-IP>']
+ctrl + o //to save
+ctrl + x //to exit editor
+
+//run the server
+python manage.py runserver 0.0.0.0:8000
+
+finally, while the django server is running, go back to your instance's security groups and edit them
+add a rule of:
+Type = Custom TCP
+Port Range = 8000
+Source = 0.0.0.0/0
+
+Good job :)
+
+
+
+
+
+git clone https://github.com/yazankayed/test2.git
+ls
+cd test2
+sudo nano TV_SHOWS/settings.py
+add puplic id
+
+python manage.py runserver 0.0.0.0:8000

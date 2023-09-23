@@ -1,0 +1,111 @@
+Before continuing, let's take some time to reflect on what we've learned to this point. Can you answer the following questions? Try to go through these questions with someone else in your cohort.
+
+Conceptual Questions
+Make sure you can answer the following questions (some of these questions may be asked during the belt exam):
+
+-What is the flow of information in a typical request, from when we type an address on our browser, to when we receive the response in our browser?
+urls-views-html
+
+-What are MVC and OOP? Why would we use each?
+modle view controller
+
+-What is jQuery and why do we use it?
+javascript library to make the html more user interactive and make javascript much easier to use
+
+-Consider a database with the following tables: users, friendships, where users includes id, name, and email, and friendships includes id, user_id, friend_id; If our friendships table includes a single association to confirm a friendship between two users, what is the QUERY to pull all of your non-friends?
+from django.db.models import Q
+
+def get_non_friends(user_id):
+    non_friends = User.objects.exclude(
+        Q(id=user_id) | Q(friendships__user_id=user_id)
+    )
+    return non_friends
+
+
+-What are some ways to make your website uniform across multiple browsers?
+
+-What are the differences between submitting a form via method="post" vs method="get"?
+get is not valid /// post request is more secure
+
+-What are the advantages/disadvantages of sending data to the server in the url vs making a post request?
+url less secure and limited data size, get method is faster and get and get easily hacked through copying url
+
+
+-Why should we never render a page on a post request?
+dublicate and save the data more than once in the database, navigation can be tough for user, and doesn't go with restful convection
+
+-You notice that when you click submit on a form, your app breaks. Describe how you would approach debugging this problem.
+multikeydecvalue,didn't use request
+
+-What are a couple of security threats and how do we defend against them?
+bcrypt,transfering data through post
+
+-What is the difference between session, post, and cookies?
+Session:
+A session refers to a logical connection or interaction between a user and a web application. It is maintained on the server-side and allows the server to store and retrieve user-specific information as the user navigates through the website. Sessions are typically identified by a unique session ID, which is usually stored in a cookie or passed as a parameter in the URL. Session data can include information like user authentication state, shopping cart contents, or any other relevant user-specific data. Sessions are temporary and have a limited lifespan, usually determined by either a timeout or when the user explicitly logs out.
+
+POST:
+POST is an HTTP method used to send data from a client (such as a web browser) to a server. It is commonly used when submitting HTML forms or when performing actions that modify data on the server. When a user submits a form using the POST method, the form data is sent in the body of the HTTP request. This data is typically used by the server to process the request, perform necessary actions, and possibly store the data in a database. The POST method is secure in the sense that the data is not visible in the URL or browser history.
+
+Cookies:
+Cookies are small pieces of data that a server sends to a user's web browser, which the browser then stores and sends back to the server with subsequent requests. Cookies are typically used to store user preferences, session IDs, or any other data that needs to persist across multiple requests or visits to a website. They can be used to track user behavior, personalize content, and maintain user sessions. Cookies are stored on the client-side and are managed by the browser. They have an expiration date/time, which determines how long they remain valid. Cookies can be set with various attributes like domain, path, and secure flag to control their scope and security.
+
+
+-Explain why and when we use session.
+to the login, session allows the webapplication to be stateful, transfer data between routes
+
+-What is an ORM and why do we use it? What are its advantages and disadvantages?
+connect between datbase and oop
+
+-In your models, you may make a class User with the following code: class User(models.Model):. Why do we have models.Model inside the parentheses?
+to tell the database that it's a table
+
+-In your models, you may make a class UserManager with the following code: class UserManager(models.Manager):. Why do we have models.Manager inside the parentheses?
+class to be inhertid, and capsulate and filtering database
+
+-What is self and why does it appear in methods that we define in a class?used to reer to the instances of the class
+
+-What is the __init__ method in a class?
+construction function 
+
+-Name 2 HTTP verbs and when would we use each.
+get-post
+
+-What is RegEx and what do we use it for?
+regular expression to confirm that the input follows the pattern
+
+-On large web applications, what are the benefits of using a framework?
+make the developer life easy
+
+-What does a templating engine do for us?
+jinja2 , to make logic in html
+
+-What are 3 different type of database table relationships?
+one many
+-Why do we use routes and how do they work?
+to make multiple urls in the same app
+
+-What is a virtual environment and why do we use it?
+holds all the frameworks,isolated depencies and install apack and lib withput effecting other projects  capsulation the frameworks
+
+-Explain what this code does: from flask import Flask
+imports flask from flask framework
+
+-What is the importance of normalizing your database?
+avoid dublicating in the database
+
+-What is an API?
+API stands for Application Programming Interface. It is a set of rules, protocols, and tools that allow different software applications to communicate and interact with each other. APIs define how different components of software systems should interact, specifying the methods, data formats, and conventions to be followed.
+
+-What is AJAX and why do we use it?
+AJAX stands for Asynchronous JavaScript and XML. It is a technique used in web development to send and retrieve data from a server asynchronously without requiring a full page reload. AJAX enables the updating of specific parts of a web page dynamically, providing a more seamless and interactive user experience.
+
+-What is the difference between an HTTP request/response and an AJAX request/response?
+ajax doesn't refresh the whole page, http response refresh the whole page
+
+-What is the difference between client-side and server-side validations, and when do we use either or both?
+client side can be turned off
+-What are the major differences between Flask and Django?
+flask micro , django MTV
+-What are the differences between tuples, lists, and dictionaries?
+TUPLES IMMUTABLE
